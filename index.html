@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <title>Some Kind Of Map</title>
+
+    <style>
+
+.map-container  {
+  overflow: hidden;
+  transform-origin: top center;
+}
+
+svg {
+  padding: 32px;
+  background-color: lightblue;
+}
+
+path  {
+  transform-origin: center;
+  fill: lightgreen;
+  transition: all .5s;
+}
+
+path:hover  {
+  fill: yellow!important;
+}
+
+path.selected {
+  fill: black!important;
+  opacity: 1!important;
+  transform: scale(2);
+  transform-origin: center;
+}
+
+.silly path {
+  transition: transform 3s ease-in-out, fill .5s;
+  transform: rotate(720deg);
+}
+
+aside {
+  position: absolute;
+  font-family: sans-serif;
+  background: white;
+  box-shadow: 1px 1px 18px #999;
+  padding: 0 16px;
+  border: 1px solid grey;
+}
+
+h1  {
+  margin: 16px 0 0 0;
+}
+.native-name  {
+  font-style: italic;
+  color: grey;
+  margin: 0;
+}
+
+
+dl  {
+  font-size: 12px;
+}
+
+dt {
+  margin-top: 8px;
+}
+
+dd  {
+  font-weight: bold;
+  margin: 0;
+}
+
+.currency-symbol {
+  font-size: 2em;
+  background: black;
+  color: white;
+  display: inline-block;
+  padding: 0 8px;
+  text-align: center;
+}
+
+.flag {
+  margin-top: 16px;
+  width: 100%;
+  max-width: 240px;
+  box-shadow: 1px 1px 18px #999;
+}
+
+.loader {
+  display: block;
+  margin-bottom: 32px;
+}
+
+    </style>
+
+  </head>
+  <body>
+    <p>click a country to see some info - use the scroll wheel to zoom</p>
+    <mappy-map></mappy-map>
+    <script type="riot/tag" src="mappy-map.tag"></script>
+    <script src="world.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/riot@3.8/riot+compiler.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.js"></script>
+   <script>riot.mount('*',{countries:countries})</script>
+  </body>
+</html>
